@@ -1,0 +1,36 @@
+syntax = "proto3";
+package currencyconverter;
+
+
+service CurrencyConverterService{
+
+    rpc PostCurrency (PostCurrencyDTO) returns (Currency){};
+
+    rpc GetCurrencies (Empty) returns (Currencies){};
+}
+
+message Currency {
+
+    int32 id = 1;
+    string name = 2;
+    float value = 3;
+    string currencyshortname = 4;
+
+
+}
+
+
+message Currencies {
+
+    repeated Currency Currencies = 1;
+}
+
+
+
+message PostCurrencyDTO {
+    string name = 1;
+}
+
+message Empty{
+
+}
